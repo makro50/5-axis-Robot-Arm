@@ -2,7 +2,7 @@
 
  5 Axis Robot Arm controlled by Sparkfun Joystick Shield and Arduino Mega.
 Jan 11, 2016 
-By David Leiva
+By David Leiva SPEED CONTROL 2
 */
 #include <Servo.h>
 //Create variables for each button on the Joystick Shield to assign the pin numbers
@@ -73,12 +73,12 @@ void loop(void)
 /*  valX = (map(valX, 0, 1023, 0, 18)*10);     // scale it to use it with the servo (value between 0 and 180) 
   ClawSpin.write(valX);          */
   // sets the servo position according to the scaled value 
- if (valX < 450) {
-    clawspinpos =  clawspinpos + 2;
+ if (valX < 300) {
+    clawspinpos =  clawspinpos + 1;
     clawspinpos = constrain(clawspinpos, 0 ,180);
      ClawSpin.write(clawspinpos);  
-  } else if (valX > 550) {
-   clawspinpos =  clawspinpos - 2;
+  } else if (valX > 700) {
+   clawspinpos =  clawspinpos - 1;
     clawspinpos = constrain(clawspinpos, 0 ,180);
     ClawSpin.write(clawspinpos);  
   }
@@ -87,12 +87,12 @@ void loop(void)
   valY = analogRead(1);         
   /* valY = (map(valY, 0, 1023, 0, 18)*10);     // scale it to use it with the servo (value between 0 and 180) 
   ClawUpDown.write(valY); */                 // sets the servo position according to the scaled value 
-   if (valY < 450) {
-    clawudpos =  clawudpos + 2;
+   if (valY < 300) {
+    clawudpos =  clawudpos + 1;
     clawudpos = constrain(clawudpos, 0 ,180);
      ClawUpDown.write(clawudpos);  
-  } else if (valY > 550) {
-   clawudpos =  clawudpos - 2;
+  } else if (valY > 700) {
+   clawudpos =  clawudpos - 1;
     clawudpos = constrain(clawudpos, 0 ,180);
     ClawUpDown.write(clawudpos);  
   }
